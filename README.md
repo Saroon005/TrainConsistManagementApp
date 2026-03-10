@@ -1,43 +1,56 @@
-# Train Consist Management App
+# Train Consist Management App – UC2
 
-A **console-based Java application** that simulates how a railway system manages a train’s consist (collection of bogies attached to an engine).
+## Use Case 2: Add Passenger Bogies to Train
 
-The system supports **passenger bogies** (Sleeper, AC Chair, First Class) and **goods bogies** (Rectangular, Cylindrical) while tracking capacity, cargo type, and safety rules.
+This console-based Java program demonstrates how **passenger bogies can be managed dynamically** using the **ArrayList** from the Java Collections Framework.
 
----
-
-## Use Case 1: Initialize Train and Display Consist Summary
-
-**Goal:**
-Start the application and display the initial state of the train consist.
-
-**Flow:**
-
-1. User runs the program.
-2. Welcome message is displayed.
-3. Train consist is initialized.
-4. Initial bogie count is shown.
+The application allows the user to **add, remove, view, and check passenger bogies** in a train consist.
 
 ---
 
-## Key Concepts
+## Features
 
-* **Class & Main Method** – Entry point of the program.
-* **Static Keyword** – Allows JVM to run `main()` without object creation.
-* **List & ArrayList** – Dynamic storage for bogies.
-* **Console Output** – Using `System.out.println()` to display messages.
+* Add passenger bogies to the train
+* Remove existing bogies
+* View the current train consist
+* Check if a specific bogie exists
+
+---
+
+## Concepts Used
+
+* **ArrayList** – Dynamic storage for bogies
+* **List Interface** – Provides abstraction for list implementations
+* **CRUD Operations** – Create, Remove, Read, and Check operations on bogies
+* **Scanner** – Accept user input from console
+* **Switch Expression** – Handle menu operations
+
+---
+
+## Example Menu
+
+```
+1. Add Bogies
+2. Remove Bogies
+3. View Bogies
+4. Check if Bogie exists
+0. Exit
+```
 
 ---
 
 ## Example Output
 
 ```
-======================================
-  === Train Consist Management App === 
-======================================
+=== Train Consist Management App ===
 Train initialized successfully...
 Initial Bogie Count : 0
-Consist Train Consist : []
 
 System ready for operations...
 ```
+
+---
+
+## Version
+
+2.0
