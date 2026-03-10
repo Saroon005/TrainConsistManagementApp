@@ -1,29 +1,29 @@
-# Train Consist Management App – UC2
+# Train Consist Management App – UC3
 
-## Use Case 2: Add Passenger Bogies to Train
+## Use Case 3: Track Unique Bogie IDs
 
-This console-based Java program demonstrates how **passenger bogies can be managed dynamically** using the **ArrayList** from the Java Collections Framework.
+This Java console application ensures that **duplicate bogie IDs cannot be added** to the train by using a **HashSet**.
 
-The application allows the user to **add, remove, view, and check passenger bogies** in a train consist.
+Unlike a List, a **Set automatically prevents duplicate values**, ensuring every bogie ID in the train is unique.
 
 ---
 
 ## Features
 
-* Add passenger bogies to the train
-* Remove existing bogies
-* View the current train consist
-* Check if a specific bogie exists
+* Add bogie IDs
+* Prevent duplicate bogie IDs
+* Remove bogies
+* View all unique bogies
+* Check if a bogie exists
 
 ---
 
 ## Concepts Used
 
-* **ArrayList** – Dynamic storage for bogies
-* **List Interface** – Provides abstraction for list implementations
-* **CRUD Operations** – Create, Remove, Read, and Check operations on bogies
-* **Scanner** – Accept user input from console
-* **Switch Expression** – Handle menu operations
+* **Set Interface** – Collection that does not allow duplicates
+* **HashSet** – Implementation of Set using hashing for fast access
+* **add() Method** – Inserts elements into the set
+* **Automatic Deduplication** – Duplicate values are ignored automatically
 
 ---
 
@@ -39,18 +39,6 @@ The application allows the user to **add, remove, view, and check passenger bogi
 
 ---
 
-## Example Output
-
-```
-=== Train Consist Management App ===
-Train initialized successfully...
-Initial Bogie Count : 0
-
-System ready for operations...
-```
-
----
-
 ## Version
 
-2.0
+3.0
