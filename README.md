@@ -1,39 +1,40 @@
-# Train Consist Management App – UC3
+# Train Consist Management App – UC4
 
-## Use Case 3: Track Unique Bogie IDs
+## Use Case 4: Maintain Ordered Bogie Consist
 
-This Java console application ensures that **duplicate bogie IDs cannot be added** to the train by using a **HashSet**.
-
-Unlike a List, a **Set automatically prevents duplicate values**, ensuring every bogie ID in the train is unique.
+This Java console application models the **physical sequence of train bogies** using a **LinkedList**.
+Unlike HashSet, LinkedList preserves order and allows efficient insertion and removal of bogies.
 
 ---
 
 ## Features
 
-* Add bogie IDs
-* Prevent duplicate bogie IDs
-* Remove bogies
-* View all unique bogies
+* Add bogies at start, end, or specific position
+* Remove bogies from front or rear
+* View the ordered train consist
 * Check if a bogie exists
 
 ---
 
 ## Concepts Used
 
-* **Set Interface** – Collection that does not allow duplicates
-* **HashSet** – Implementation of Set using hashing for fast access
-* **add() Method** – Inserts elements into the set
-* **Automatic Deduplication** – Duplicate values are ignored automatically
+* **LinkedList** – Doubly linked list implementation of List
+* **Order Preservation** – Maintains the sequence of bogies
+* **addFirst() / addLast()** – Insert at beginning or end
+* **removeFirst() / removeLast()** – Remove from front or rear
 
 ---
 
 ## Example Menu
 
 ```
-1. Add Bogies
-2. Remove Bogies
-3. View Bogies
-4. Check if Bogie exists
+1. Add Bogies at specific position
+2. Add Bogies at the start
+3. Add Bogies at the end
+4. Remove Bogies from the front
+5. Remove Bogies from the rear
+6. View Bogies
+7. Check if Bogie exists
 0. Exit
 ```
 
@@ -41,4 +42,4 @@ Unlike a List, a **Set automatically prevents duplicate values**, ensuring every
 
 ## Version
 
-3.0
+4.0
