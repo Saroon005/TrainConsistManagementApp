@@ -1,27 +1,26 @@
-# Train Consist Management App – UC5
+# Train Consist Management App – UC6
 
-## Use Case 5: Preserve Insertion Order of Bogies
+## Use Case 6: Map Bogie to Capacity
 
-This Java console application uses **LinkedHashSet** to maintain the **order in which bogies are attached** while also **preventing duplicate bogies**.
+This Java console application uses **HashMap** to associate each **bogie with its seating or load capacity** using a **key–value mapping structure**.
 
 ---
 
 ## Features
 
-* Add bogies while preserving insertion order
-* Prevent duplicate bogies automatically
-* Remove bogies from the formation
-* View the current train consist
+* Add bogies with their capacity
+* Remove bogies from the system
+* View bogie–capacity details
 * Check if a bogie exists
 
 ---
 
 ## Concepts Used
 
-* **LinkedHashSet** – Maintains insertion order with uniqueness
-* **Set Interface** – Prevents duplicate elements
-* **Automatic Deduplication** – Duplicate bogies are ignored
-* **Ordered Iteration** – Bogies appear in the order they were added
+* **HashMap** – Stores bogie and capacity as key–value pairs
+* **Map Interface** – Represents mappings between keys and values
+* **put() Method** – Inserts bogie-capacity pairs
+* **entrySet() Iteration** – Used to display bogie and capacity together
 
 ---
 
@@ -39,4 +38,4 @@ This Java console application uses **LinkedHashSet** to maintain the **order in 
 
 ## Version
 
-5.0
+6.0
