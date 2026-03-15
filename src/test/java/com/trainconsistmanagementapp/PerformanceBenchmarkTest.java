@@ -2,6 +2,8 @@ package com.trainconsistmanagementapp;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import com.trainconsistmanagementapp.exception.InvalidCapacityException;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,7 +12,7 @@ import org.junit.jupiter.api.Test;
 public class PerformanceBenchmarkTest {
 
 	@Test
-	void shouldReturnPositiveLoopExecutionTime() {
+	void shouldReturnPositiveLoopExecutionTime() throws InvalidCapacityException {
 		List<Bogie> dataset = new ArrayList<>();
 		for (int i = 1; i <= 10000; i++) {
 			int capacity = (i % 100) + 1;
@@ -22,7 +24,7 @@ public class PerformanceBenchmarkTest {
 	}
 
 	@Test
-	void shouldReturnPositiveStreamExecutionTime() {
+	void shouldReturnPositiveStreamExecutionTime() throws InvalidCapacityException {
 		List<Bogie> dataset = new ArrayList<>();
 		for (int i = 1; i <= 10000; i++) {
 			int capacity = (i % 100) + 1;

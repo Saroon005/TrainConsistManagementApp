@@ -2,6 +2,8 @@ package com.trainconsistmanagementapp;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import com.trainconsistmanagementapp.exception.InvalidCapacityException;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -12,7 +14,7 @@ import org.junit.jupiter.api.Test;
 public class BogieGroupingTest {
 
 	@Test
-	void shouldGroupBogiesByName() {
+	void shouldGroupBogiesByName() throws InvalidCapacityException {
 		List<Bogie> bogies = new ArrayList<>();
 		bogies.add(new Bogie("Sleeper", 72));
 		bogies.add(new Bogie("Sleeper", 68));
@@ -27,7 +29,7 @@ public class BogieGroupingTest {
 	}
 
 	@Test
-	void shouldCreateCorrectNumberOfGroups() {
+	void shouldCreateCorrectNumberOfGroups() throws InvalidCapacityException {
 		List<Bogie> bogies = new ArrayList<>();
 		bogies.add(new Bogie("Sleeper", 72));
 		bogies.add(new Bogie("Sleeper", 68));

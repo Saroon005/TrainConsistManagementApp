@@ -1,8 +1,8 @@
-# Train Consist Management App – UC13
+# Train Consist Management App – UC14
 
 ## Progress
 
-UC1 – UC13 Completed
+UC1 – UC14 Completed
 
 ## Use Case 7: Sort Bogies by Capacity
 
@@ -214,6 +214,34 @@ long elapsed = end - start;
 
 ---
 
+## UC14 – Handle Invalid Bogie Capacity (Custom Exception)
+
+### Description
+
+Prevent creation of bogies with invalid seating capacity.
+
+### Goal
+
+Fail fast when invalid input is detected.
+
+### Concepts Introduced
+
+* Custom Exception
+* Checked Exception
+* throw keyword
+* throws declaration
+* Fail-fast validation
+
+### Example snippet
+
+```java
+if(capacity <= 0){
+	throw new InvalidCapacityException("Capacity must be greater than zero");
+}
+```
+
+---
+
 ## Version
 
-13.0
+14.0

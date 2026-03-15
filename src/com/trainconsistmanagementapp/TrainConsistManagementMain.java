@@ -23,6 +23,8 @@
  */
 package com.trainconsistmanagementapp;
 
+import com.trainconsistmanagementapp.exception.InvalidCapacityException;
+
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.regex.Matcher;
@@ -82,8 +84,12 @@ public class TrainConsistManagementMain {
 				int capacity = sc.nextInt();
 				sc.nextLine();
 
-				bogies.add(new Bogie(name, capacity));
-				System.out.println("Bogie added successfully!");
+				try {
+					bogies.add(new Bogie(name, capacity));
+					System.out.println("Bogie added successfully!");
+				} catch (InvalidCapacityException e) {
+					System.out.println("Error: " + e.getMessage());
+				}
 				yield true;
 			}
 
@@ -243,7 +249,11 @@ public class TrainConsistManagementMain {
 				List<Bogie> dataset = new ArrayList<>();
 				for (int i = 1; i <= 10000; i++) {
 					int capacity = (i % 100) + 1;
-					dataset.add(new Bogie("Bogie-" + i, capacity));
+					try {
+						dataset.add(new Bogie("Bogie-" + i, capacity));
+					} catch (InvalidCapacityException e) {
+						throw new RuntimeException(e);
+					}
 				}
 
 				long loopTime = PerformanceBenchmarkService.measureLoopExecution(dataset);

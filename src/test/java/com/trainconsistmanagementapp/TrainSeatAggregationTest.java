@@ -2,6 +2,8 @@ package com.trainconsistmanagementapp;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import com.trainconsistmanagementapp.exception.InvalidCapacityException;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,7 +12,7 @@ import org.junit.jupiter.api.Test;
 public class TrainSeatAggregationTest {
 
 	@Test
-	void shouldCalculateTotalCapacity() {
+	void shouldCalculateTotalCapacity() throws InvalidCapacityException {
 		List<Bogie> bogies = new ArrayList<>();
 		bogies.add(new Bogie("Sleeper", 72));
 		bogies.add(new Bogie("AC Chair", 56));
@@ -35,7 +37,7 @@ public class TrainSeatAggregationTest {
 	}
 
 	@Test
-	void shouldHandleSingleBogie() {
+	void shouldHandleSingleBogie() throws InvalidCapacityException {
 		List<Bogie> bogies = new ArrayList<>();
 		bogies.add(new Bogie("Sleeper", 72));
 

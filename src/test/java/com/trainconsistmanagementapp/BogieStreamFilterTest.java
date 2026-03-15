@@ -2,6 +2,8 @@ package com.trainconsistmanagementapp;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import com.trainconsistmanagementapp.exception.InvalidCapacityException;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -11,7 +13,7 @@ import org.junit.jupiter.api.Test;
 public class BogieStreamFilterTest {
 
 	@Test
-	void shouldReturnOnlyHighCapacityBogies() {
+	void shouldReturnOnlyHighCapacityBogies() throws InvalidCapacityException {
 		List<Bogie> bogies = new ArrayList<>();
 		bogies.add(new Bogie("General", 50));
 		bogies.add(new Bogie("Sleeper", 72));
@@ -26,7 +28,7 @@ public class BogieStreamFilterTest {
 	}
 
 	@Test
-	void shouldReturnEmptyListWhenNoBogieMatches() {
+	void shouldReturnEmptyListWhenNoBogieMatches() throws InvalidCapacityException {
 		List<Bogie> bogies = new ArrayList<>();
 		bogies.add(new Bogie("General", 60));
 		bogies.add(new Bogie("Second", 45));
@@ -39,7 +41,7 @@ public class BogieStreamFilterTest {
 	}
 
 	@Test
-	void shouldIgnoreLowCapacityBogies() {
+	void shouldIgnoreLowCapacityBogies() throws InvalidCapacityException {
 		List<Bogie> bogies = new ArrayList<>();
 		bogies.add(new Bogie("Low", 10));
 		bogies.add(new Bogie("Edge", 60));
