@@ -1,8 +1,8 @@
-# Train Consist Management App – UC11
+# Train Consist Management App – UC12
 
 ## Progress
 
-UC1 – UC11 Completed
+UC1 – UC12 Completed
 
 ## Use Case 7: Sort Bogies by Capacity
 
@@ -42,6 +42,7 @@ Bogies are modeled as objects and stored in a **List**, allowing custom sorting 
 7. Group Bogies by Type
 8. Count Total Seats in Train
 9. Validate Train ID & Cargo Code
+10. Check Goods Bogie Safety Compliance
 0. Exit
 ```
 
@@ -157,6 +158,33 @@ boolean valid = matcher.matches();
 
 ---
 
+## UC12 – Safety Compliance Check for Goods Bogies
+
+### Description
+
+Validate cargo assignment rules using Java Streams.
+
+### Goal
+
+Ensure goods bogies follow safety constraints.
+
+### Concepts Introduced
+
+* Streams API
+* allMatch()
+* Lambda expressions
+* Business rule validation
+* Loose coupling via service class
+
+### Example snippet
+
+```java
+goodsBogies.stream()
+		   .allMatch(rule);
+```
+
+---
+
 ## Version
 
-11.0
+12.0

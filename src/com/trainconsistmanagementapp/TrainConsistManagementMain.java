@@ -3,21 +3,22 @@
  * MAIN CLASS - TrainConsistManagementMain
  * ======================================================
  *
- * Use Case 11: Validate Train ID and Cargo Code
+ * Use Case 12: Safety Compliance Check for Goods Bogies
  *
  * Description:
- * This class validates input formats using Regular Expressions.
+ * This class enforces domain safety rules on goods bogies.
  *
  * At this stage, the application:
- * - Accepts Train ID input
- * - Accepts Cargo Code input
- * - Applies regex validation
- * - Displays validation result
+ * - Creates goods bogie list
+ * - Converts list into stream
+ * - Applies safety validation rule
+ * - Checks compliance using allMatch()
+ * - Displays safety status
  *
- * This maps format validation logic using Pattern matching.
+ * This maps real-world cargo safety rules using Streams.
  *
  * @author Developer
- * @version 11.0
+ * @version 12.0
  */
 package com.trainconsistmanagementapp;
 
@@ -62,6 +63,7 @@ public class TrainConsistManagementMain {
 			System.out.println("7. Group Bogies by Type");
 			System.out.println("8. Count Total Seats in Train");
 			System.out.println("9. Validate Train ID & Cargo Code");
+			System.out.println("10. Check Goods Bogie Safety Compliance");
 			System.out.println("0. Exit");
 
 			System.out.print("Enter your Choice : ");
@@ -208,6 +210,26 @@ public class TrainConsistManagementMain {
 
 				System.out.println("Train ID Valid : " + trainValid);
 				System.out.println("Cargo Code Valid : " + cargoValid);
+				yield true;
+			}
+
+			case 10 -> {
+				System.out.println("=========================================");
+				System.out.println(" UC12 - Safety Compliance Check");
+				System.out.println("=========================================");
+
+				List<GoodsBogie> goodsBogies = List.of(
+						new GoodsBogie("Cylindrical", "Petroleum"),
+						new GoodsBogie("Rectangular", "Coal"),
+						new GoodsBogie("Cylindrical", "Petroleum"));
+
+				boolean safe = SafetyComplianceService.isTrainSafe(goodsBogies);
+
+				if (safe)
+					System.out.println("Train cargo configuration is SAFE");
+				else
+					System.out.println("Safety violation detected!");
+
 				yield true;
 			}
 
