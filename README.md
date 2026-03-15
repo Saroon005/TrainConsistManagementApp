@@ -1,6 +1,6 @@
-# Train Consist Management App – UC18
+# Train Consist Management App – UC19
 
-Progress: UC1 – UC18 Completed
+Progress: UC1 – UC19 Completed
 
 ## UC18 – Linear Search for Bogie ID
 
@@ -32,6 +32,32 @@ return false;
 
 ---
 
+## UC19 – Binary Search for Bogie ID
+
+### Description
+
+Efficient search algorithm for locating bogies in sorted datasets.
+
+### Goal
+
+Improve search performance compared to Linear Search.
+
+### Concepts Introduced
+
+* Binary Search
+* Divide-and-conquer
+* Sorted data requirement
+* Index-based traversal
+* Time complexity O(log n)
+
+### Example snippet
+
+```java
+int mid = (low + high) / 2;
+```
+
+---
+
 ## Version
 
-18.0
+19.0

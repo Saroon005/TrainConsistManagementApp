@@ -24,6 +24,7 @@
 package com.trainconsistmanagementapp;
 
 import com.trainconsistmanagementapp.algorithm.ArraysSortUtility;
+import com.trainconsistmanagementapp.algorithm.BinarySearchUtility;
 import com.trainconsistmanagementapp.algorithm.BubbleSortUtility;
 import com.trainconsistmanagementapp.algorithm.LinearSearchUtility;
 import com.trainconsistmanagementapp.exception.CargoSafetyException;
@@ -77,6 +78,7 @@ public class TrainConsistManagementMain {
 			System.out.println("13. Sort Passenger Capacities (Bubble Sort)");
 			System.out.println("14. Sort Bogie Names Alphabetically (Arrays.sort)");
 			System.out.println("15. Search Bogie ID (Linear Search)");
+			System.out.println("16. Search Bogie ID (Binary Search)");
 			System.out.println("0. Exit");
 
 			System.out.print("Enter your Choice : ");
@@ -361,6 +363,34 @@ public class TrainConsistManagementMain {
 				boolean found = LinearSearchUtility.searchBogieId(ids, searchKey);
 				if (found)
 					System.out.println("Bogie found in train consist.");
+				else
+					System.out.println("Bogie not found.");
+
+				yield true;
+			}
+
+			case 16 -> {
+				System.out.println("=========================================");
+				System.out.println(" UC19 - Binary Search for Bogie ID");
+				System.out.println("=========================================");
+
+				if (bogies.isEmpty()) {
+					System.out.println("No bogies available to search.");
+					yield true;
+				}
+
+				String[] ids = bogies.stream()
+						.map(Bogie::getName)
+						.toArray(String[]::new);
+
+				Arrays.sort(ids);
+
+				System.out.print("Enter Bogie ID to search: ");
+				String searchKey = sc.nextLine();
+
+				boolean found = BinarySearchUtility.binarySearch(ids, searchKey);
+				if (found)
+					System.out.println("Bogie found using Binary Search.");
 				else
 					System.out.println("Bogie not found.");
 
