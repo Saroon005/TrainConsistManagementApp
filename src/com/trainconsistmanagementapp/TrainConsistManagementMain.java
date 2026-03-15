@@ -23,6 +23,7 @@
  */
 package com.trainconsistmanagementapp;
 
+import com.trainconsistmanagementapp.exception.CargoSafetyException;
 import com.trainconsistmanagementapp.exception.InvalidCapacityException;
 
 import java.util.*;
@@ -68,6 +69,7 @@ public class TrainConsistManagementMain {
 			System.out.println("9. Validate Train ID & Cargo Code");
 			System.out.println("10. Check Goods Bogie Safety Compliance");
 			System.out.println("11. Compare Loop vs Stream Performance");
+			System.out.println("12. Assign Cargo to Goods Bogie");
 			System.out.println("0. Exit");
 
 			System.out.print("Enter your Choice : ");
@@ -261,6 +263,30 @@ public class TrainConsistManagementMain {
 
 				System.out.println("Loop Execution Time (ns): " + loopTime);
 				System.out.println("Stream Execution Time (ns): " + streamTime);
+				yield true;
+			}
+
+			case 12 -> {
+				System.out.println("=========================================");
+				System.out.println(" UC15 - Safe Cargo Assignment");
+				System.out.println("=========================================");
+
+				System.out.print("Enter Goods Bogie Type : ");
+				String type = sc.nextLine();
+
+				System.out.print("Enter Cargo : ");
+				String cargo = sc.nextLine();
+
+				GoodsBogie goodsBogie = new GoodsBogie(type, "");
+
+				try {
+					goodsBogie.assignCargo(cargo);
+					System.out.println("Cargo assigned successfully.");
+				} catch (CargoSafetyException e) {
+					System.out.println("ERROR: " + e.getMessage());
+				} finally {
+					System.out.println("Cargo assignment attempt completed.");
+				}
 				yield true;
 			}
 
