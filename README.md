@@ -1,6 +1,6 @@
-# Train Consist Management App – UC19
+# Train Consist Management App – UC20
 
-Progress: UC1 – UC19 Completed
+Progress: UC1 – UC20 Completed
 
 ## UC18 – Linear Search for Bogie ID
 
@@ -58,6 +58,33 @@ int mid = (low + high) / 2;
 
 ---
 
+## UC20 – Exception Handling During Search Operations
+
+### Description
+
+Prevent invalid search operations when the train consist has no bogies.
+
+### Goal
+
+Ensure search algorithms run only when valid data exists.
+
+### Concepts Introduced
+
+* Defensive programming
+* Fail-fast principle
+* IllegalStateException
+* Runtime validation
+
+### Example snippet
+
+```java
+if(bogies.isEmpty()){
+	throw new IllegalStateException("No bogies available");
+}
+```
+
+---
+
 ## Version
 
-19.0
+20.0

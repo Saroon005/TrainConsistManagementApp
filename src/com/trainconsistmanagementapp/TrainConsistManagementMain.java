@@ -29,6 +29,7 @@ import com.trainconsistmanagementapp.algorithm.BubbleSortUtility;
 import com.trainconsistmanagementapp.algorithm.LinearSearchUtility;
 import com.trainconsistmanagementapp.exception.CargoSafetyException;
 import com.trainconsistmanagementapp.exception.InvalidCapacityException;
+import com.trainconsistmanagementapp.service.SearchValidationService;
 
 import java.util.Arrays;
 import java.util.*;
@@ -348,23 +349,24 @@ public class TrainConsistManagementMain {
 				System.out.println(" UC18 - Linear Search for Bogie ID");
 				System.out.println("=========================================");
 
-				if (bogies.isEmpty()) {
-					System.out.println("No bogies available to search.");
-					yield true;
+				try {
+					SearchValidationService.validateBogieCollection(bogies);
+
+					String[] ids = bogies.stream()
+							.map(Bogie::getName)
+							.toArray(String[]::new);
+
+					System.out.print("Enter Bogie ID to search: ");
+					String searchKey = sc.nextLine();
+
+					boolean found = LinearSearchUtility.searchBogieId(ids, searchKey);
+					if (found)
+						System.out.println("Bogie found in train consist.");
+					else
+						System.out.println("Bogie not found.");
+				} catch (IllegalStateException e) {
+					System.out.println("ERROR: " + e.getMessage());
 				}
-
-				String[] ids = bogies.stream()
-						.map(Bogie::getName)
-						.toArray(String[]::new);
-
-				System.out.print("Enter Bogie ID to search: ");
-				String searchKey = sc.nextLine();
-
-				boolean found = LinearSearchUtility.searchBogieId(ids, searchKey);
-				if (found)
-					System.out.println("Bogie found in train consist.");
-				else
-					System.out.println("Bogie not found.");
 
 				yield true;
 			}
@@ -374,25 +376,26 @@ public class TrainConsistManagementMain {
 				System.out.println(" UC19 - Binary Search for Bogie ID");
 				System.out.println("=========================================");
 
-				if (bogies.isEmpty()) {
-					System.out.println("No bogies available to search.");
-					yield true;
+				try {
+					SearchValidationService.validateBogieCollection(bogies);
+
+					String[] ids = bogies.stream()
+							.map(Bogie::getName)
+							.toArray(String[]::new);
+
+					Arrays.sort(ids);
+
+					System.out.print("Enter Bogie ID to search: ");
+					String searchKey = sc.nextLine();
+
+					boolean found = BinarySearchUtility.binarySearch(ids, searchKey);
+					if (found)
+						System.out.println("Bogie found using Binary Search.");
+					else
+						System.out.println("Bogie not found.");
+				} catch (IllegalStateException e) {
+					System.out.println("ERROR: " + e.getMessage());
 				}
-
-				String[] ids = bogies.stream()
-						.map(Bogie::getName)
-						.toArray(String[]::new);
-
-				Arrays.sort(ids);
-
-				System.out.print("Enter Bogie ID to search: ");
-				String searchKey = sc.nextLine();
-
-				boolean found = BinarySearchUtility.binarySearch(ids, searchKey);
-				if (found)
-					System.out.println("Bogie found using Binary Search.");
-				else
-					System.out.println("Bogie not found.");
 
 				yield true;
 			}
