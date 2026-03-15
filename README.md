@@ -1,4 +1,8 @@
-# Train Consist Management App – UC7
+# Train Consist Management App – UC8
+
+## Progress
+
+UC1 – UC8 Completed
 
 ## Use Case 7: Sort Bogies by Capacity
 
@@ -34,11 +38,39 @@ Bogies are modeled as objects and stored in a **List**, allowing custom sorting 
 3. View Bogies
 4. Check if Bogie exists
 5. Sort Bogies by Capacity
+6. Filter High Capacity Bogies (Stream)
 0. Exit
+```
+
+---
+
+## UC8 – Filter Passenger Bogies Using Streams
+
+### Description
+
+Filtering bogies using Java Stream API.
+
+### Goal
+
+Display only high-capacity bogies.
+
+### Concepts Introduced
+
+* Stream API
+* filter()
+* Lambda Expressions
+* Declarative Programming
+
+### Example Code Snippet
+
+```java
+bogies.stream()
+	.filter(b -> b.getCapacity() > 60)
+	.toList();
 ```
 
 ---
 
 ## Version
 
-7.0
+8.0

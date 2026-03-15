@@ -1,6 +1,7 @@
 package com.trainconsistmanagementapp;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class TrainConsistManagementMain {
 
@@ -34,6 +35,7 @@ public class TrainConsistManagementMain {
 			System.out.println("3. View Bogies");
 			System.out.println("4. Check if Bogie exists");
 			System.out.println("5. Sort Bogies by Capacity");
+			System.out.println("6. Filter High Capacity Bogies (Stream)");
 			System.out.println("0. Exit");
 
 			System.out.print("Enter your Choice : ");
@@ -94,6 +96,26 @@ public class TrainConsistManagementMain {
 			case 5 -> {
 				bogies.sort(Comparator.comparingInt(Bogie::getCapacity));
 				System.out.println("Bogies sorted by capacity successfully!");
+				yield true;
+			}
+
+			case 6 -> {
+				System.out.println("=========================================");
+				System.out.println(" UC8 - Filter Passenger Bogies Using Streams");
+				System.out.println("=========================================");
+
+				List<Bogie> filteredBogies = bogies.stream()
+						.filter(b -> b.getCapacity() > 60)
+						.collect(Collectors.toList());
+
+				if (filteredBogies.isEmpty()) {
+					System.out.println("No bogies with capacity greater than 60.");
+				} else {
+					System.out.println("High Capacity Bogies (>60 seats):");
+					for (Bogie b : filteredBogies) {
+						System.out.println(b);
+					}
+				}
 				yield true;
 			}
 
