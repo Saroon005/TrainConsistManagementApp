@@ -23,10 +23,12 @@
  */
 package com.trainconsistmanagementapp;
 
+import com.trainconsistmanagementapp.algorithm.ArraysSortUtility;
 import com.trainconsistmanagementapp.algorithm.BubbleSortUtility;
 import com.trainconsistmanagementapp.exception.CargoSafetyException;
 import com.trainconsistmanagementapp.exception.InvalidCapacityException;
 
+import java.util.Arrays;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.regex.Matcher;
@@ -72,6 +74,7 @@ public class TrainConsistManagementMain {
 			System.out.println("11. Compare Loop vs Stream Performance");
 			System.out.println("12. Assign Cargo to Goods Bogie");
 			System.out.println("13. Sort Passenger Capacities (Bubble Sort)");
+			System.out.println("14. Sort Bogie Names Alphabetically (Arrays.sort)");
 			System.out.println("0. Exit");
 
 			System.out.print("Enter your Choice : ");
@@ -312,6 +315,27 @@ public class TrainConsistManagementMain {
 				for (int capacity : capacities) {
 					System.out.println(capacity);
 				}
+				yield true;
+			}
+
+			case 14 -> {
+				System.out.println("=========================================");
+				System.out.println(" UC17 - Sort Bogie Names (Arrays.sort)");
+				System.out.println("=========================================");
+
+				if (bogies.isEmpty()) {
+					System.out.println("No bogies available to sort.");
+					yield true;
+				}
+
+				String[] names = bogies.stream()
+						.map(Bogie::getName)
+						.toArray(String[]::new);
+
+				names = ArraysSortUtility.sortBogieNames(names);
+
+				System.out.println("Sorted Bogie Names:");
+				System.out.println(Arrays.toString(names));
 				yield true;
 			}
 
