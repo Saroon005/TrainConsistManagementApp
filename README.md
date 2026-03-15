@@ -1,33 +1,37 @@
-# Train Consist Management App – UC17
+# Train Consist Management App – UC18
 
-Progress: UC1 – UC17 Completed
+Progress: UC1 – UC18 Completed
 
-## UC17 – Sort Bogie Names Using Arrays.sort()
+## UC18 – Linear Search for Bogie ID
 
 ### Description
 
-Sort bogie names alphabetically using Java's optimized library sorting.
+Search for a specific bogie ID using a sequential traversal algorithm.
 
 ### Goal
 
-Replace manual sorting logic with efficient built-in algorithms.
+Locate bogies even when the dataset is unsorted.
 
 ### Concepts Introduced
 
-* Arrays.sort()
-* Natural ordering
-* Java utility classes
-* Algorithm optimization
-* O(n log n) complexity
+* Linear Search
+* Sequential traversal
+* Early termination
+* Time complexity O(n)
 
 ### Example snippet
 
 ```java
-Arrays.sort(names);
+for(String id : bogieIds){
+	if(id.equals(searchKey)){
+		return true;
+	}
+}
+return false;
 ```
 
 ---
 
 ## Version
 
-17.0
+18.0

@@ -25,6 +25,7 @@ package com.trainconsistmanagementapp;
 
 import com.trainconsistmanagementapp.algorithm.ArraysSortUtility;
 import com.trainconsistmanagementapp.algorithm.BubbleSortUtility;
+import com.trainconsistmanagementapp.algorithm.LinearSearchUtility;
 import com.trainconsistmanagementapp.exception.CargoSafetyException;
 import com.trainconsistmanagementapp.exception.InvalidCapacityException;
 
@@ -75,6 +76,7 @@ public class TrainConsistManagementMain {
 			System.out.println("12. Assign Cargo to Goods Bogie");
 			System.out.println("13. Sort Passenger Capacities (Bubble Sort)");
 			System.out.println("14. Sort Bogie Names Alphabetically (Arrays.sort)");
+			System.out.println("15. Search Bogie ID (Linear Search)");
 			System.out.println("0. Exit");
 
 			System.out.print("Enter your Choice : ");
@@ -336,6 +338,32 @@ public class TrainConsistManagementMain {
 
 				System.out.println("Sorted Bogie Names:");
 				System.out.println(Arrays.toString(names));
+				yield true;
+			}
+
+			case 15 -> {
+				System.out.println("=========================================");
+				System.out.println(" UC18 - Linear Search for Bogie ID");
+				System.out.println("=========================================");
+
+				if (bogies.isEmpty()) {
+					System.out.println("No bogies available to search.");
+					yield true;
+				}
+
+				String[] ids = bogies.stream()
+						.map(Bogie::getName)
+						.toArray(String[]::new);
+
+				System.out.print("Enter Bogie ID to search: ");
+				String searchKey = sc.nextLine();
+
+				boolean found = LinearSearchUtility.searchBogieId(ids, searchKey);
+				if (found)
+					System.out.println("Bogie found in train consist.");
+				else
+					System.out.println("Bogie not found.");
+
 				yield true;
 			}
 
