@@ -3,22 +3,23 @@
  * MAIN CLASS - TrainConsistManagementMain
  * ======================================================
  *
- * Use Case 12: Safety Compliance Check for Goods Bogies
+ * Use Case 13: Performance Comparison (Loops vs Streams)
  *
  * Description:
- * This class enforces domain safety rules on goods bogies.
+ * This class compares execution time of loop-based filtering
+ * versus stream-based filtering using System.nanoTime().
  *
  * At this stage, the application:
- * - Creates goods bogie list
- * - Converts list into stream
- * - Applies safety validation rule
- * - Checks compliance using allMatch()
- * - Displays safety status
+ * - Creates bogie test dataset
+ * - Measures loop execution time
+ * - Measures stream execution time
+ * - Calculates elapsed duration
+ * - Displays performance results
  *
- * This maps real-world cargo safety rules using Streams.
+ * This maps performance benchmarking using high-resolution timing.
  *
  * @author Developer
- * @version 12.0
+ * @version 13.0
  */
 package com.trainconsistmanagementapp;
 
@@ -64,6 +65,7 @@ public class TrainConsistManagementMain {
 			System.out.println("8. Count Total Seats in Train");
 			System.out.println("9. Validate Train ID & Cargo Code");
 			System.out.println("10. Check Goods Bogie Safety Compliance");
+			System.out.println("11. Compare Loop vs Stream Performance");
 			System.out.println("0. Exit");
 
 			System.out.print("Enter your Choice : ");
@@ -230,6 +232,25 @@ public class TrainConsistManagementMain {
 				else
 					System.out.println("Safety violation detected!");
 
+				yield true;
+			}
+
+			case 11 -> {
+				System.out.println("=========================================");
+				System.out.println(" UC13 - Performance Comparison");
+				System.out.println("=========================================");
+
+				List<Bogie> dataset = new ArrayList<>();
+				for (int i = 1; i <= 10000; i++) {
+					int capacity = (i % 100) + 1;
+					dataset.add(new Bogie("Bogie-" + i, capacity));
+				}
+
+				long loopTime = PerformanceBenchmarkService.measureLoopExecution(dataset);
+				long streamTime = PerformanceBenchmarkService.measureStreamExecution(dataset);
+
+				System.out.println("Loop Execution Time (ns): " + loopTime);
+				System.out.println("Stream Execution Time (ns): " + streamTime);
 				yield true;
 			}
 

@@ -1,8 +1,8 @@
-# Train Consist Management App – UC12
+# Train Consist Management App – UC13
 
 ## Progress
 
-UC1 – UC12 Completed
+UC1 – UC13 Completed
 
 ## Use Case 7: Sort Bogies by Capacity
 
@@ -43,6 +43,7 @@ Bogies are modeled as objects and stored in a **List**, allowing custom sorting 
 8. Count Total Seats in Train
 9. Validate Train ID & Cargo Code
 10. Check Goods Bogie Safety Compliance
+11. Compare Loop vs Stream Performance
 0. Exit
 ```
 
@@ -185,6 +186,34 @@ goodsBogies.stream()
 
 ---
 
+## UC13 – Performance Comparison (Loops vs Streams)
+
+### Description
+
+Benchmark filtering operations using loops vs Stream API.
+
+### Goal
+
+Measure actual execution time rather than assuming performance.
+
+### Concepts Introduced
+
+* System.nanoTime()
+* Performance benchmarking
+* Loop iteration
+* Stream pipelines
+* Micro-measurement techniques
+
+### Example snippet
+
+```java
+long start = System.nanoTime();
+long end = System.nanoTime();
+long elapsed = end - start;
+```
+
+---
+
 ## Version
 
-12.0
+13.0
