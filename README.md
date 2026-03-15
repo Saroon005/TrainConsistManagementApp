@@ -1,8 +1,8 @@
-# Train Consist Management App – UC9
+# Train Consist Management App – UC10
 
 ## Progress
 
-UC1 – UC9 Completed
+UC1 – UC10 Completed
 
 ## Use Case 7: Sort Bogies by Capacity
 
@@ -40,6 +40,7 @@ Bogies are modeled as objects and stored in a **List**, allowing custom sorting 
 5. Sort Bogies by Capacity
 6. Filter High Capacity Bogies (Stream)
 7. Group Bogies by Type
+8. Count Total Seats in Train
 0. Exit
 ```
 
@@ -99,6 +100,34 @@ bogies.stream()
 
 ---
 
+## UC10 – Count Total Seats in Train (reduce)
+
+### Description
+
+Aggregate seating capacity using Stream reduction.
+
+### Goal
+
+Calculate the total number of seats available in the train.
+
+### Concepts Introduced
+
+* Stream API
+* map()
+* reduce()
+* Method references
+* Functional aggregation
+
+### Example snippet
+
+```java
+bogies.stream()
+	.map(Bogie::getCapacity)
+	.reduce(0, Integer::sum);
+```
+
+---
+
 ## Version
 
-9.0
+10.0

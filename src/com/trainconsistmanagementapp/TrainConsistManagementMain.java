@@ -1,3 +1,25 @@
+/**
+ * ======================================================
+ * MAIN CLASS - TrainConsistManagementMain
+ * ======================================================
+ *
+ * Use Case 10: Count Total Seats in Train
+ *
+ * Description:
+ * This class aggregates seating capacity of all bogies
+ * into a single total using Stream reduce().
+ *
+ * At this stage, the application:
+ * - Creates bogie list
+ * - Maps bogies to capacity
+ * - Reduces values into total
+ * - Displays total seat count
+ *
+ * This maps aggregation logic using reduce().
+ *
+ * @author Developer
+ * @version 10.0
+ */
 package com.trainconsistmanagementapp;
 
 import java.util.*;
@@ -37,6 +59,7 @@ public class TrainConsistManagementMain {
 			System.out.println("5. Sort Bogies by Capacity");
 			System.out.println("6. Filter High Capacity Bogies (Stream)");
 			System.out.println("7. Group Bogies by Type");
+			System.out.println("8. Count Total Seats in Train");
 			System.out.println("0. Exit");
 
 			System.out.print("Enter your Choice : ");
@@ -140,6 +163,24 @@ public class TrainConsistManagementMain {
 					}
 					System.out.println();
 				}
+				yield true;
+			}
+
+			case 8 -> {
+				System.out.println("=========================================");
+				System.out.println(" UC10 - Count Total Seats in Train");
+				System.out.println("=========================================");
+
+				if (bogies.isEmpty()) {
+					System.out.println("No bogies available to calculate capacity.");
+					yield true;
+				}
+
+				int totalSeats = bogies.stream()
+						.map(Bogie::getCapacity)
+						.reduce(0, Integer::sum);
+
+				System.out.println("Total Seating Capacity of Train : " + totalSeats);
 				yield true;
 			}
 
