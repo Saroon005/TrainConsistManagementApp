@@ -23,6 +23,7 @@
  */
 package com.trainconsistmanagementapp;
 
+import com.trainconsistmanagementapp.algorithm.BubbleSortUtility;
 import com.trainconsistmanagementapp.exception.CargoSafetyException;
 import com.trainconsistmanagementapp.exception.InvalidCapacityException;
 
@@ -70,6 +71,7 @@ public class TrainConsistManagementMain {
 			System.out.println("10. Check Goods Bogie Safety Compliance");
 			System.out.println("11. Compare Loop vs Stream Performance");
 			System.out.println("12. Assign Cargo to Goods Bogie");
+			System.out.println("13. Sort Passenger Capacities (Bubble Sort)");
 			System.out.println("0. Exit");
 
 			System.out.print("Enter your Choice : ");
@@ -286,6 +288,29 @@ public class TrainConsistManagementMain {
 					System.out.println("ERROR: " + e.getMessage());
 				} finally {
 					System.out.println("Cargo assignment attempt completed.");
+				}
+				yield true;
+			}
+
+			case 13 -> {
+				System.out.println("=========================================");
+				System.out.println(" UC16 - Sort Passenger Capacities (Bubble Sort)");
+				System.out.println("=========================================");
+
+				if (bogies.isEmpty()) {
+					System.out.println("No bogies available to sort.");
+					yield true;
+				}
+
+				int[] capacities = bogies.stream()
+						.mapToInt(Bogie::getCapacity)
+						.toArray();
+
+				BubbleSortUtility.bubbleSort(capacities);
+
+				System.out.println("Sorted Passenger Capacities:");
+				for (int capacity : capacities) {
+					System.out.println(capacity);
 				}
 				yield true;
 			}

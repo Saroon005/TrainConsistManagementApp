@@ -1,4 +1,6 @@
-# Train Consist Management App – UC15
+# Train Consist Management App – UC16
+
+Progress: UC1 – UC16 Completed
 
 ## UC15 – Safe Cargo Assignment using try-catch-finally
 
@@ -33,6 +35,36 @@ finally{
 
 ---
 
+## UC16 – Sort Passenger Bogies by Capacity (Bubble Sort)
+
+### Description
+
+Manual sorting algorithm demonstration using Bubble Sort.
+
+### Goal
+
+Teach algorithm fundamentals before using built-in sorting utilities.
+
+### Concepts Introduced
+
+* Bubble Sort algorithm
+* Nested loops
+* Array manipulation
+* Swap logic
+* Time complexity O(n²)
+
+### Example snippet
+
+```java
+if(arr[j] > arr[j+1]) {
+	int temp = arr[j];
+	arr[j] = arr[j+1];
+	arr[j+1] = temp;
+}
+```
+
+---
+
 ## Version
 
-15.0
+16.0
