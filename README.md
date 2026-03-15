@@ -1,36 +1,39 @@
-# Train Consist Management App – UC6
+# Train Consist Management App – UC7
 
-## Use Case 6: Map Bogie to Capacity
+## Use Case 7: Sort Bogies by Capacity
 
-This Java console application uses **HashMap** to associate each **bogie with its seating or load capacity** using a **key–value mapping structure**.
+This Java console application sorts **passenger bogies based on their seating capacity** using a **Comparator**.
+Bogies are modeled as objects and stored in a **List**, allowing custom sorting based on business logic.
 
 ---
 
 ## Features
 
-* Add bogies with their capacity
-* Remove bogies from the system
-* View bogie–capacity details
+* Add passenger bogies with capacity
+* Remove bogies from the list
+* View all bogies
 * Check if a bogie exists
+* Sort bogies by seating capacity
 
 ---
 
 ## Concepts Used
 
-* **HashMap** – Stores bogie and capacity as key–value pairs
-* **Map Interface** – Represents mappings between keys and values
-* **put() Method** – Inserts bogie-capacity pairs
-* **entrySet() Iteration** – Used to display bogie and capacity together
+* **Custom Class (Bogie)** – Represents a bogie with name and capacity
+* **List Collection** – Stores bogie objects dynamically
+* **Comparator** – Defines custom sorting logic
+* **sort() Method** – Sorts bogies based on capacity
 
 ---
 
 ## Example Menu
 
 ```
-1. Add Bogies
-2. Remove Bogies
+1. Add Bogie
+2. Remove Bogie
 3. View Bogies
 4. Check if Bogie exists
+5. Sort Bogies by Capacity
 0. Exit
 ```
 
@@ -38,4 +41,4 @@ This Java console application uses **HashMap** to associate each **bogie with it
 
 ## Version
 
-6.0
+7.0
