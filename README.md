@@ -1,8 +1,8 @@
-# Train Consist Management App – UC10
+# Train Consist Management App – UC11
 
 ## Progress
 
-UC1 – UC10 Completed
+UC1 – UC11 Completed
 
 ## Use Case 7: Sort Bogies by Capacity
 
@@ -41,6 +41,7 @@ Bogies are modeled as objects and stored in a **List**, allowing custom sorting 
 6. Filter High Capacity Bogies (Stream)
 7. Group Bogies by Type
 8. Count Total Seats in Train
+9. Validate Train ID & Cargo Code
 0. Exit
 ```
 
@@ -128,6 +129,34 @@ bogies.stream()
 
 ---
 
+## UC11 – Validate Train ID & Cargo Code (Regex)
+
+### Description
+
+Validate input formats using Java Regular Expressions.
+
+### Goal
+
+Ensure Train ID and Cargo Codes follow strict format rules.
+
+### Concepts Introduced
+
+* Regular Expressions
+* Pattern
+* Matcher
+* matches()
+* Input validation
+
+### Example snippet
+
+```java
+Pattern pattern = Pattern.compile("TRN-\\d{4}");
+Matcher matcher = pattern.matcher(input);
+boolean valid = matcher.matches();
+```
+
+---
+
 ## Version
 
-10.0
+11.0

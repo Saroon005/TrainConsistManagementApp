@@ -3,27 +3,28 @@
  * MAIN CLASS - TrainConsistManagementMain
  * ======================================================
  *
- * Use Case 10: Count Total Seats in Train
+ * Use Case 11: Validate Train ID and Cargo Code
  *
  * Description:
- * This class aggregates seating capacity of all bogies
- * into a single total using Stream reduce().
+ * This class validates input formats using Regular Expressions.
  *
  * At this stage, the application:
- * - Creates bogie list
- * - Maps bogies to capacity
- * - Reduces values into total
- * - Displays total seat count
+ * - Accepts Train ID input
+ * - Accepts Cargo Code input
+ * - Applies regex validation
+ * - Displays validation result
  *
- * This maps aggregation logic using reduce().
+ * This maps format validation logic using Pattern matching.
  *
  * @author Developer
- * @version 10.0
+ * @version 11.0
  */
 package com.trainconsistmanagementapp;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class TrainConsistManagementMain {
 
@@ -60,6 +61,7 @@ public class TrainConsistManagementMain {
 			System.out.println("6. Filter High Capacity Bogies (Stream)");
 			System.out.println("7. Group Bogies by Type");
 			System.out.println("8. Count Total Seats in Train");
+			System.out.println("9. Validate Train ID & Cargo Code");
 			System.out.println("0. Exit");
 
 			System.out.print("Enter your Choice : ");
@@ -181,6 +183,31 @@ public class TrainConsistManagementMain {
 						.reduce(0, Integer::sum);
 
 				System.out.println("Total Seating Capacity of Train : " + totalSeats);
+				yield true;
+			}
+
+			case 9 -> {
+				System.out.println("=========================================");
+				System.out.println(" UC11 - Validate Train ID & Cargo Code");
+				System.out.println("=========================================");
+
+				System.out.print("Enter Train ID : ");
+				String trainId = sc.nextLine();
+
+				System.out.print("Enter Cargo Code : ");
+				String cargoCode = sc.nextLine();
+
+				Pattern trainPattern = Pattern.compile("TRN-\\d{4}");
+				Pattern cargoPattern = Pattern.compile("PET-[A-Z]{2}");
+
+				Matcher trainMatcher = trainPattern.matcher(trainId);
+				Matcher cargoMatcher = cargoPattern.matcher(cargoCode);
+
+				boolean trainValid = trainMatcher.matches();
+				boolean cargoValid = cargoMatcher.matches();
+
+				System.out.println("Train ID Valid : " + trainValid);
+				System.out.println("Cargo Code Valid : " + cargoValid);
 				yield true;
 			}
 
