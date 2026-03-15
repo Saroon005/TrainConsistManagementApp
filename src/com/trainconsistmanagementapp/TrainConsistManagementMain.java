@@ -36,6 +36,7 @@ public class TrainConsistManagementMain {
 			System.out.println("4. Check if Bogie exists");
 			System.out.println("5. Sort Bogies by Capacity");
 			System.out.println("6. Filter High Capacity Bogies (Stream)");
+			System.out.println("7. Group Bogies by Type");
 			System.out.println("0. Exit");
 
 			System.out.print("Enter your Choice : ");
@@ -115,6 +116,29 @@ public class TrainConsistManagementMain {
 					for (Bogie b : filteredBogies) {
 						System.out.println(b);
 					}
+				}
+				yield true;
+			}
+
+			case 7 -> {
+				System.out.println("=========================================");
+				System.out.println(" UC9 - Group Bogies by Type");
+				System.out.println("=========================================");
+
+				if (bogies.isEmpty()) {
+					System.out.println("No bogies available to group.");
+					yield true;
+				}
+
+				Map<String, List<Bogie>> groupedBogies = bogies.stream()
+						.collect(Collectors.groupingBy(Bogie::getName));
+
+				for (Map.Entry<String, List<Bogie>> entry : groupedBogies.entrySet()) {
+					System.out.println(entry.getKey());
+					for (Bogie b : entry.getValue()) {
+						System.out.println("   " + b);
+					}
+					System.out.println();
 				}
 				yield true;
 			}

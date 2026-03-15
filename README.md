@@ -1,8 +1,8 @@
-# Train Consist Management App – UC8
+# Train Consist Management App – UC9
 
 ## Progress
 
-UC1 – UC8 Completed
+UC1 – UC9 Completed
 
 ## Use Case 7: Sort Bogies by Capacity
 
@@ -39,6 +39,7 @@ Bogies are modeled as objects and stored in a **List**, allowing custom sorting 
 4. Check if Bogie exists
 5. Sort Bogies by Capacity
 6. Filter High Capacity Bogies (Stream)
+7. Group Bogies by Type
 0. Exit
 ```
 
@@ -71,6 +72,33 @@ bogies.stream()
 
 ---
 
+## UC9 – Group Bogies by Type (Collectors.groupingBy)
+
+### Description
+
+Grouping bogies into structured categories using Java Stream collectors.
+
+### Goal
+
+Organize bogies into logical groups for reporting.
+
+### Concepts Introduced
+
+* Stream API
+* Collectors.groupingBy()
+* Map<String, List<Bogie>>
+* Lambda Expressions
+* Data aggregation
+
+### Example code snippet
+
+```java
+bogies.stream()
+	.collect(Collectors.groupingBy(Bogie::getName));
+```
+
+---
+
 ## Version
 
-8.0
+9.0
